@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-function FormularioCadastro({ aoEnviar }) {
+function FormularioCadastro({ aoEnviar, validarCPF }) {
 
     const [nome, setNome] = useState('');
     //o hook useState devolve um array de dois elementos
@@ -71,9 +71,15 @@ function FormularioCadastro({ aoEnviar }) {
                 variant="outlined"
                 type='text'
                 fullWidth
-                error={erros.cpf.valido}
+                error={!erros.cpf.valido}
                 helperText={erros.cpf.texto}
-                onBlur={(event) => { setErros({ cpf: { valido: false, text: 'O CPF deve ter 11 digitos.' } }) }} />
+                onBlur={(event) => {
+
+                    const ehValido = validarCPF(event.target.value);
+                    console.log(event.target.value);
+                    console.log(ehValido);
+                    setErros({ cpf: ehValido });
+                }} />
 
             <FormControlLabel
                 control={
