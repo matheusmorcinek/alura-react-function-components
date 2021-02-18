@@ -1,7 +1,8 @@
-import { Component, Fragment } from 'react';
+import { Component } from 'react';
 import './App.css';
 import FormularioCadastro from './components/FormularioCadastro/FormularioCadastro';
-import Container from '@material-ui/core/Container';
+import {Container, Typography} from '@material-ui/core';
+import 'fontsource-roboto';
 
 //class component
 class App extends Component {
@@ -10,7 +11,7 @@ class App extends Component {
     return (
       <Container component='article' maxWidth="sm">
 
-        <h1>Formulário de cadastro</h1>
+        <Typography variant='h3' align='center' component='h1' >Formulário de cadastro</Typography>
         <FormularioCadastro />
       </Container>
     );
