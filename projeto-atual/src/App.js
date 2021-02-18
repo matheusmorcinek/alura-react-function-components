@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import './App.css';
 import FormularioCadastro from './components/FormularioCadastro/FormularioCadastro';
-import {Container, Typography} from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 import 'fontsource-roboto';
 
 //class component
@@ -12,10 +12,15 @@ class App extends Component {
       <Container component='article' maxWidth="sm">
 
         <Typography variant='h3' align='center' component='h1' >Formulário de cadastro</Typography>
-        <FormularioCadastro />
+        <FormularioCadastro aoEnviar={aoEnviarForm} />
       </Container>
     );
   }
+}
+
+function aoEnviarForm(dados) {
+
+  console.log(dados);
 }
 
 // function App() {

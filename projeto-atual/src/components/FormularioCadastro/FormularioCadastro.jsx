@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-function FormularioCadastro() {
+function FormularioCadastro({ aoEnviar }) {
 
     const [nome, setNome] = useState('');
     //o hook useState devolve um array de dois elementos
@@ -27,9 +27,10 @@ function FormularioCadastro() {
 
     return (
         <form onSubmit={(event) => {
-            
+
             event.preventDefault();
-            console.log({nome, sobrenome, cpf, novidades, promocoes});
+
+            aoEnviar({ nome, sobrenome, cpf, novidades, promocoes });
         }}>
 
             <TextField
